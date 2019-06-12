@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defines the XML version-->
+
+<!--Defines that this is a hibernate mapping file-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--Defines what class is linking to what table-->
+    <class name="com.LeeGlen.JobHistory" table="job_history">
+        <!--Defines the ID-->
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+        <!--Defines the linking attributes-->
+        <property name="type" column="Type" type="java.lang.String"/>
+        <property name="start_date" column="Start_Date" type="java.util.Date"/>
+        <property name="end_date" column="End_Date" type="java.util.Date"/>
+        <!--Defines the relationship-->
+        <many-to-one name="employee" column="EMPLOYEE_ID" class="com.LeeGlen.Employee"/>
+    </class>
+</hibernate-mapping>

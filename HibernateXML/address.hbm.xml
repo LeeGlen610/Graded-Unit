@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defines the XML version-->
+
+<!--Defines that this is a hibernate mapping file-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--Defines what class is linking to what table-->
+    <class name="com.LeeGlen.Address" table="address">
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+        <!--Defines the linking attributes-->
+        <property name="first_line" column="First_Line" type="java.lang.String"/>
+        <property name="second_line" column="Second_Line" type="java.lang.String"/>
+        <property name="postcode" column="postcode" type="java.lang.String"/>
+        <property name="county" column="County" type="java.lang.String"/>
+        <!--Defines the relationships-->
+        <one-to-one name="employee" cascade="all"/>
+        <one-to-one name="customer" cascade="all"/>
+        <one-to-one name="supplier" cascade="all"/>
+    </class>
+</hibernate-mapping>

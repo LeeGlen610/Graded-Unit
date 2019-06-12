@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defines the XML version-->
+
+<!--Defines that this is a hibernate mapping file-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--Defines what class is linking to what table-->
+    <class name="com.LeeGlen.Product" table="product">
+        <!--Defines the ID-->
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+        <!--Defines the linking attributes-->
+        <property name="name" column="Name" type="java.lang.String"/>
+        <property name="type" column="Type" type="java.lang.String"/>
+        <property name="price" column="Price" type="java.lang.Double"/>
+        <property name="stock" column="Stock" type="java.lang.Integer"/>
+        <!--Defines the relationships-->
+        <many-to-one name="supplier" column="SUPPLIER_ID" class="com.LeeGlen.Supplier"/>
+        <set name="stockLogs" table="stock_log" inverse="true" cascade="save-update" lazy="false">
+            <key>
+                <column name="ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LeeGlen.StockLog"/>
+        </set>
+        <set name="transactionLogs" table="transaction_log" inverse="true" cascade="save-update" lazy="true">
+            <key>
+                <column name="ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LeeGlen.TransactionLog"/>
+        </set>
+    </class>
+</hibernate-mapping>

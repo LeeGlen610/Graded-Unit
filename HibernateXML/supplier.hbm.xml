@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defines the XML version-->
+
+<!--Defines that this is a hibernate mapping file-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--Defines what class is linking to what table-->
+    <class name="com.LeeGlen.Supplier" table="supplier" >
+        <!--Defines the ID-->
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+        <!--Defines the linking attributes-->
+        <property name="name" column="Name" type="java.lang.String"/>
+        <property name="type" column="Type" type="java.lang.String"/>
+        <!--Defines the relationships-->
+        <one-to-one name="address" cascade="all"/>
+        <set name="products" table="product" inverse="true" cascade="save-update" lazy="true">
+            <key>
+                <column name="ID" not-null="true"/>
+            </key>
+            <one-to-many class="com.LeeGlen.Product"/>
+        </set>
+    </class>
+</hibernate-mapping>

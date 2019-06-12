@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Defines the version of XML-->
+<!--Imports all of the UI attributes being used-->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<!--Creates the elements and then given them their attributes - with TitledPane it links the controller class specific to the employee found using fx:controller-->
+<TitledPane alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="683.0" text="Employee Found" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmployeeFoundController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="662.0" style="-fx-background-color: RGB(21,93,175);">
+         <children>
+             <!--Creates a table to store data specific to a class-->
+            <TableView fx:id="employeeTable" layoutY="-2.0" prefHeight="316.0" prefWidth="683.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="col_firstName" prefWidth="109.0" text="First Name" />
+                  <TableColumn fx:id="col_lastName" prefWidth="100.0" text="Last Name" />
+                  <TableColumn fx:id="col_salary" prefWidth="74.0" text="Salary" />
+                  <TableColumn fx:id="col_manager" minWidth="2.0" prefWidth="95.0" text="Manager ID" />
+                  <TableColumn fx:id="col_address" minWidth="2.0" prefWidth="229.0" text="Address" />
+              </columns>
+            </TableView>
+             <!--The menu button has an onAction attribute which links to a method so when the button is pressed that method will run.-->
+             <Button fx:id="menuButton" layoutX="268.0" layoutY="326.0" mnemonicParsing="false" onAction="#mainMenu" style="-fx-background-color: rgb(0,52,127);" text="Return To Main Menu" textFill="white">
+               <font>
+                   <!--Defines the font of the text in this attribute-->
+                   <Font name="Verdana" size="12.0" />
+               </font></Button>
+         </children></AnchorPane>
+  </content>
+   <font>
+       <!--Defines the font of the text-->
+       <Font name="Verdana" size="12.0" />
+   </font>
+</TitledPane>

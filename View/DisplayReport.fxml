@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Defines the version of XML-->
+<!--Imports all of the UI attributes being used-->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<!--Creates the elements and then given them their attributes - with TitledPane it links the controller class specific to the display report using fx:controller-->
+<TitledPane alignment="CENTER" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Report" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.DisplayReportController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: RGB(21,93,175);">
+         <children>
+            <TextArea fx:id="reportTextbox" layoutX="-1.0" prefHeight="267.0" prefWidth="600.0" />
+             <!--The main menu button has an onAction attribute which links to a method so when the button is pressed that method will run.-->
+             <Button fx:id="mainMenu" layoutX="262.0" layoutY="297.0" mnemonicParsing="false" onAction="#mainMenu" prefHeight="42.0" prefWidth="86.0" style="-fx-background-color: rgb(0,52,127);" text="Main Menu" textFill="white">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font></Button>
+         </children></AnchorPane>
+  </content>
+   <font>
+       <!--Defines the font of the text-->
+       <Font name="Verdana" size="12.0" />
+   </font>
+</TitledPane>

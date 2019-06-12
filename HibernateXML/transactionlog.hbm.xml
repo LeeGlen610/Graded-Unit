@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defines the XML version-->
+
+<!--Defines that this is a hibernate mapping file-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--Defines what class is linking to what table-->
+    <class name="com.LeeGlen.TransactionLog" table="transaction_log">
+        <!--Defines the ID-->
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+        <!--Defines the linking attributes-->
+        <property name="total_price" column="Total_Price" type="java.lang.Double"/>
+        <property name="year" column="Year" type="java.util.Date"/>
+        <!--Defines the relationships-->
+        <many-to-one name="product" column="PRODUCT_ID" class="com.LeeGlen.Product"/>
+        <many-to-one name="employee" column="EMPLOYEE_ID" class="com.LeeGlen.Employee"/>
+        <many-to-one name="customer" column="CUSTOMER_ID" class="com.LeeGlen.Customer"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Defining what XML is being used-->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--Defines that this is a hibernate configuration file-->
+
+
+<hibernate-configuration>
+    <!--This defines what database and SQL is being used and the mapping of the classes-->
+    <session-factory>
+        <!--Defines the database and SQL-->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQL55Dialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/graded_unit_2</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!--Defines the mapping between the classes and tables-->
+        <mapping resource="HibernateXML/employee.hbm.xml"/>
+        <mapping resource="HibernateXML/address.hbm.xml"/>
+        <mapping resource="HibernateXML/customer.hbm.xml"/>
+        <mapping resource="HibernateXML/jobhistory.hbm.xml"/>
+        <mapping resource="HibernateXML/product.hbm.xml"/>
+        <mapping resource="HibernateXML/stocklog.hbm.xml"/>
+        <mapping resource="HibernateXML/supplier.hbm.xml"/>
+        <mapping resource="HibernateXML/transactionlog.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
